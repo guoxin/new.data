@@ -1,0 +1,39 @@
+This package of codes is released under GPL v3 license.
+If you find bug, please let me know via: xinguo2@alumni.cityu.edu.hk
+Guo Xin August 10, 2012
+
+This package of codes generates Table 5 of the draft
+"Towards a Mathematical Foundation of Immunology and Amino Acid Chains"
+available at arXiv: http://arxiv.org/abs/1205.6031v2
+
+The C dynamic library should be compiled in unix-like system
+(e.g. MacOS, Linux) since POSIX thread tool is used. To compile,
+just type
+
+$ make
+
+and the Makefile script will finish all the things.
+
+File "new.Data" contains the new binding data selected as
+described in the paper for Table 5.
+
+The file "internals.R" stores some necessary functions used.
+The program "fixLambda.R" was used to fix by leave one out cross 
+validation the regularization parameter lambda. It verifies that
+exp(-13) is just the optimal value. If you believe what I say,
+you need not to run it.
+
+The main program is in the R file "gen.tab5.R" which will output
+an R data package "report.Rdata" from where the predicted
+binding affinity can be found. These values are used to generate
+the Table 5 mentioned above. To run it, try
+
+$ Rscipt gen.tab5.R
+
+I also made some codes to cope with Nielsen's software
+http://www.cbs.dtu.dk/cgi-bin/nph-sw_request?netMHCIIpan
+For using the software, I suppose one adjust the data 
+himself/herself. However if you feel it too difficult,
+the package "compare with MHCIIpan2.0.zip" maybe a fine resort. Many files 
+are stored there and I just forgot how they were operated. If you have to
+turn to the package, good luck.
